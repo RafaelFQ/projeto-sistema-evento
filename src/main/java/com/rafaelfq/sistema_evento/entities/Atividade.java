@@ -2,7 +2,9 @@ package com.rafaelfq.sistema_evento.entities;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_atividade")
@@ -14,6 +16,16 @@ public class Atividade {
     private String nome;
     private String descricao;
     private Double preco;
+
+    @ManyToMany(mappedBy = "atividades")
+    private Set<Participante> participantes = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
+
+    @OneToMany(mappedBy = "atividade", cascade = CascadeType.ALL)
+    private Set<Bloco> blocos = new HashSet<>();
 
     public Atividade(){
     }
@@ -55,6 +67,26 @@ public class Atividade {
 
     public void setPreco(Double preco) {
         this.preco = preco;
+    }
+
+    public Set<Participante> getParticipantes() {
+        return participantes;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public Set<Bloco> getBlocos() {
+        return blocos;
+    }
+
+    public void setBlocos(Set<Bloco> blocos) {
+        this.blocos = blocos;
     }
 
     @Override
