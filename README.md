@@ -27,6 +27,6 @@ O sistema gerencia **eventos acadêmicos**, permitindo o cadastro de **atividade
 
 ## 👤 Autor
 
-**Rafael Artur Filgueira Quaresma**
+**Rafael Artur F Quaresma**
 
-📌 Projeto com fins educacionais.
+📌 Projeto desenvolvido como **desafio prático** do curso **Java Spring Professional**, da DevSuperior.
